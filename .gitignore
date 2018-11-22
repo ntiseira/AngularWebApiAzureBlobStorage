@@ -9,7 +9,7 @@ obj
 packages
 .vs
 *.orig
-
+App_Data
 *.backup
 
 *.psess
