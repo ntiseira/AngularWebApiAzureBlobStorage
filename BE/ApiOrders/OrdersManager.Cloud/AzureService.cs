@@ -3,6 +3,7 @@ using Sandboxable.Microsoft.WindowsAzure.Storage;
 using Sandboxable.Microsoft.WindowsAzure.Storage.Blob;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -20,15 +21,13 @@ namespace OrdersManager.Cloud
             string sourceFile = null;
             string destinationFile = null;
 
-            // Retrieve the connection string for use with the application. The storage connection string is stored
-            // in an environment variable on the machine running the application called storageconnectionstring.
-            // If the environment variable is created after the application is launched in a console or with Visual
-            // Studio, the shell needs to be closed and reloaded to take the environment variable into account.
-            string storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=nicotiseira;AccountKey=anvxcKA5hWAKa+7FaiX41yTS/Aku6aW0bsOJnYGjfOrwHB9YgBz18YR8jp08vdtgs2g1p3p9isEzPlS8nLI/PA==;EndpointSuffix=core.windows.net";
+            // Retrieve the connection string for use with the application. The storage connection string is stored in appsettings
+         
+            string storageConnectionString = ConfigurationManager.AppSettings["CloudBlobConnectionString"].ToString();
 
-            string containerName = "imagestest";
 
-            //Environment.GetEnvironmentVariable("storageconnectionstring");
+            //ContainterName
+            string containerName = ConfigurationManager.AppSettings["ContainterName"].ToString();
 
             // Check whether the connection string can be parsed.
             if (CloudStorageAccount.TryParse(storageConnectionString, out storageAccount))
