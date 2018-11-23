@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -36,5 +37,9 @@ namespace OrdersManager.Services.Interfaces
         /// </summary>
         /// <param name="orderEntity"></param>
        void EditOrderDetail(OrderDetailDTO orderDetailEntity);
+
+        void UploadImageContainer(string fileName);
+
+
     }
 }

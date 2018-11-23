@@ -186,6 +186,10 @@
       <Project>{A2A82C26-779F-4526-A93F-2E96A566BEE2}</Project>
       <Name>OrdersManager.Api</Name>
     </ProjectReference>
+    <ProjectReference Include="..\OrdersManager.Cloud\OrdersManager.Cloud.csproj">
+      <Project>{3c7f6bc3-f1bf-4c15-9c07-37d4d299f0d9}</Project>
+      <Name>OrdersManager.Cloud</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OrdersManager.Data\OrdersManager.Data.csproj">
       <Project>{1A4E4B17-467F-412C-9359-7F9B639E9D1B}</Project>
       <Name>OrdersManager.Data</Name>

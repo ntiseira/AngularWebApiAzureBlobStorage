@@ -1,4 +1,5 @@
-﻿using OrdersManager.Data.Helper;
+﻿using OrdersManager.Cloud.Interfaces;
+using OrdersManager.Data.Helper;
 using OrdersManager.Data.Repository.Base;
 using OrdersManager.Data.UnitOfWork;
 using OrdersManager.Domain;
@@ -18,20 +19,27 @@ namespace OrdersManager.Services
     {
 
         private readonly IUnitOfWork unitOfWork;
+        private readonly ICloudServices cloudServices;
         private Data.Repository.Base.IRepository<Order> orderRepository;
         private Data.Repository.Base.IRepository<OrderDetail> orderDetailsRepository;
 
 
         /// <inheritdoc />
         public OrderService(
-            IUnitOfWork unitOfWork 
+            IUnitOfWork unitOfWork, ICloudServices cloudServices
             )
         {
-            this.unitOfWork = unitOfWork;     
+            this.unitOfWork = unitOfWork;
+            this.cloudServices = cloudServices;
 
         }
 
-        public void EditOrderDetail(OrderDetailDTO orderDetailDto)
+        public void UploadImageContainer(string fileName)
+        {
+            cloudServices.UploadFileAsync(fileName);
+        }
+
+            public void EditOrderDetail(OrderDetailDTO orderDetailDto)
         {
             orderDetailsRepository = unitOfWork.GetRepository<OrderDetail>();
 

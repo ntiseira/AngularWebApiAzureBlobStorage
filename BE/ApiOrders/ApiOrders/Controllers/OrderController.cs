@@ -87,6 +87,9 @@ namespace OrdersManager.Api.Controllers
                 // This illustrates how to get the file names.
                 foreach (MultipartFileData file in provider.FileData)
                 {
+
+                    orderService.UploadImageContainer(file.LocalFileName);
+                    
                     Trace.WriteLine(file.Headers.ContentDisposition.FileName);
                     Trace.WriteLine("Server file path: " + file.LocalFileName);
                 }

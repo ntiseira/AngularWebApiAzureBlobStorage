@@ -1,5 +1,7 @@
 using CommonServiceLocator;
 using OrdersManager.Api.Controllers;
+using OrdersManager.Cloud;
+using OrdersManager.Cloud.Interfaces;
 using OrdersManager.Data.Repository.Base;
 using OrdersManager.Data.UnitOfWork;
 using OrdersManager.Services;
@@ -59,6 +61,7 @@ namespace OrdersManager.Test
             container.RegisterType<IContextFactory, ContextFactory>(new SingletonLifetimeManager());
 
             container.RegisterType<IUnitOfWork, UnitOfWork>(new SingletonLifetimeManager());
+            container.RegisterType<ICloudServices, AzureService>();
 
             container.RegisterType(typeof(IRepository<>), typeof(Repository<>));
 

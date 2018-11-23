@@ -1,4 +1,6 @@
 using CommonServiceLocator;
+using OrdersManager.Cloud;
+using OrdersManager.Cloud.Interfaces;
 using OrdersManager.Data.Repository.Base;
 using OrdersManager.Data.UnitOfWork;
 using OrdersManager.Services;
@@ -52,6 +54,10 @@ namespace OrdersManager.Api
             container.RegisterType<IContextFactory, ContextFactory>(new PerRequestLifetimeManager());
 
             container.RegisterType<IUnitOfWork, UnitOfWork>(new PerRequestLifetimeManager());
+
+            container.RegisterType<ICloudServices, AzureService>();
+
+             
 
             container.RegisterType(typeof(IRepository<>), typeof(Repository<>));
 
