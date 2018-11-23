@@ -38,7 +38,7 @@ namespace OrdersManager.Services.Interfaces
         /// <param name="orderEntity"></param>
        void EditOrderDetail(OrderDetailDTO orderDetailEntity);
 
-        void UploadImageContainer(string fileName);
+        Task <bool> UploadImageContainer(string fileName);
 
 
     }

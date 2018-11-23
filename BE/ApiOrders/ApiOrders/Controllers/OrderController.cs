@@ -1,4 +1,5 @@
-﻿using OrdersManager.Domain;
+﻿using OrdersManager.Common;
+using OrdersManager.Domain;
 using OrdersManager.Domain.DTOs;
 using OrdersManager.Services.Interfaces;
 using System;
@@ -68,15 +69,9 @@ namespace OrdersManager.Api.Controllers
             {
                 throw new HttpResponseException(HttpStatusCode.UnsupportedMediaType);
             }
-
-            #warning review  this line
-            string root = HttpContext.Current == null
-                        ? System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), "ApiOrders\\App_Data")
-                        : HttpContext.Current.Server.MapPath("ApiOrders\\App_Data");
-
-
-
-                //HttpContext.Current.Server.MapPath("~/App_Data");
+            
+            string root = ManageDirectory.GetDirectory();
+                            
             var provider = new MultipartFormDataStreamProvider(root);
 
             try
@@ -84,15 +79,9 @@ namespace OrdersManager.Api.Controllers
                 // Read the form data.
                 await Request.Content.ReadAsMultipartAsync(provider);
 
-                // This illustrates how to get the file names.
-                foreach (MultipartFileData file in provider.FileData)
-                {
+                await  orderService.UploadImageContainer(provider.FileData[0].LocalFileName);
 
-                    orderService.UploadImageContainer(file.LocalFileName);
-                    
-                    Trace.WriteLine(file.Headers.ContentDisposition.FileName);
-                    Trace.WriteLine("Server file path: " + file.LocalFileName);
-                }
+               
                 return Request.CreateResponse(HttpStatusCode.OK);
             }
             catch (System.Exception e)

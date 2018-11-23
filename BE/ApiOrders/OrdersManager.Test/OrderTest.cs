@@ -22,7 +22,6 @@ namespace OrdersManager.Test
         [Test]
         public void OrderPostDataBlob()
         {
-
             var orderController = UnityConfig.Resolve<OrderController>();
             HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, "");
 

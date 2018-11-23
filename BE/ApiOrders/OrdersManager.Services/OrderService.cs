@@ -34,12 +34,14 @@ namespace OrdersManager.Services
 
         }
 
-        public void UploadImageContainer(string fileName)
+        public  Task<bool> UploadImageContainer(string fileName)
         {
-            cloudServices.UploadFileAsync(fileName);
+            return Task.FromResult(cloudServices.UploadFileAsync(fileName).Result);
         }
 
-            public void EditOrderDetail(OrderDetailDTO orderDetailDto)
+       
+
+        public void EditOrderDetail(OrderDetailDTO orderDetailDto)
         {
             orderDetailsRepository = unitOfWork.GetRepository<OrderDetail>();
 
@@ -200,6 +202,8 @@ namespace OrdersManager.Services
 
             return result.ToArray();
         }
+
+      
 
         #endregion
     }

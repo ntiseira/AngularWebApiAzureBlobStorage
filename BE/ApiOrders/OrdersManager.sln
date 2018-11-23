@@ -29,6 +29,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6-Cloud", "6-Cloud", "{CFB4
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrdersManager.Cloud", "OrdersManager.Cloud\OrdersManager.Cloud.csproj", "{3C7F6BC3-F1BF-4C15-9C07-37D4D299F0D9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrdersManager.Common", "OrdersManager.Common\OrdersManager.Common.csproj", "{34913544-F400-4787-BF97-C96B43799E20}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{3C7F6BC3-F1BF-4C15-9C07-37D4D299F0D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C7F6BC3-F1BF-4C15-9C07-37D4D299F0D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C7F6BC3-F1BF-4C15-9C07-37D4D299F0D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34913544-F400-4787-BF97-C96B43799E20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34913544-F400-4787-BF97-C96B43799E20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34913544-F400-4787-BF97-C96B43799E20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34913544-F400-4787-BF97-C96B43799E20}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -70,6 +76,7 @@ Global
 		{1A4E4B17-467F-412C-9359-7F9B639E9D1B} = {91585BBD-1DE0-4472-AE49-232C983593ED}
 		{E6C120EB-1AE1-4A0B-814B-D6C5575A6CD8} = {ABBB9B3F-63EF-450E-9E20-B9B119EBB1F8}
 		{3C7F6BC3-F1BF-4C15-9C07-37D4D299F0D9} = {CFB4818E-6F5C-4429-9395-A7628783CD36}
+		{34913544-F400-4787-BF97-C96B43799E20} = {58E8EB67-2299-4978-9226-7D133D81E6B1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EAB97ED5-01A3-4DD8-87B2-23D7F241B07D}
