@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'JavaSampleApproach';
-  description = 'Angular5-SpringBoot Demo';
+  title = 'Azure Blob Storage';
+  description = 'File upload to blob storage  Demo';
 }

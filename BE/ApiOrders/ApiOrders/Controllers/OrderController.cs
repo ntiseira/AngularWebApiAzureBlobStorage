@@ -17,9 +17,7 @@ using System.Web.Http;
 using System.Web.Http.Cors;
 
 namespace OrdersManager.Api.Controllers
-{
-    //  [Authorize]
-
+{    
     [RoutePrefix("api")]
     public class OrderController : ApiController
     {
@@ -34,39 +32,14 @@ namespace OrdersManager.Api.Controllers
         {
             this.orderService = orderService;
         }
-
-        /// <summary>
-        /// Gets the specified page.
-        /// </summary>
-        /// <param name="page">The page.</param>
-        /// <param name="pageSize">Size of the page.</param>
-        /// <returns></returns>     
-         [Route("Order/PostGetOrders")]
-        public IHttpActionResult PostGetOrders ([FromBody]BaseCriteriaDTO criteria)
-        {
-            if (criteria == null)
-                return BadRequest();
-            PagedListDTO<OrderDTO> result = orderService.GetOrders(criteria);
-
-            return Ok(result);
-        }
-
-        [Route("Order/PostGetOrdersDetails")]
-        public IHttpActionResult PostGetOrdersDetails([FromBody]BaseCriteriaDTO criteria)
-        {
-            if (criteria == null)
-                return BadRequest();
-            PagedListDTO<OrderDetailDTO> result = orderService.GetOrdersDetails(criteria);
-
-            return Ok(result);
-        }
+               
 
         /// <summary>
         /// Upload Image
         /// </summary>
         /// <returns></returns>
         [Route("Order/PostOrdersData")]
-        public async Task<HttpResponseMessage> PostFormData()
+        public async  Task<HttpResponseMessage> PostFormData()
         {
             // Check if the request contains multipart/form-data.
             if (!Request.Content.IsMimeMultipartContent())
@@ -99,8 +72,7 @@ namespace OrdersManager.Api.Controllers
                 }
 
                 await orderService.UploadImageContainer(provider.FileData[0].LocalFileName, nameOfFile);
-
-               
+                               
                 return Request.CreateResponse(HttpStatusCode.OK);
             }
             catch (System.Exception e)
@@ -111,16 +83,6 @@ namespace OrdersManager.Api.Controllers
 
 
 
-        [Route("Order/PostEditOrderDetail")]
-        public IHttpActionResult PostEditOrder([FromBody]OrderDetailDTO orderDetailDTO)
-        {
-            if (orderDetailDTO == null)
-                return BadRequest();
-
-            orderService.EditOrderDetail(orderDetailDTO);
-
-            return Ok();
-        }
 
     }
 }
