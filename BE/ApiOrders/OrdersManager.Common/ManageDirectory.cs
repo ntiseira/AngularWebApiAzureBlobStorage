@@ -14,7 +14,7 @@ namespace OrdersManager.Common
         
         return HttpContext.Current == null
                         ? System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App_Data")
-                        : HttpContext.Current.Server.MapPath("App_Data");
+                        : HttpContext.Current.Server.MapPath("~/App_Data");
         }
 
     }

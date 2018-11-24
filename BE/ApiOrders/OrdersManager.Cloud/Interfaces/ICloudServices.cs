@@ -8,7 +8,7 @@ namespace OrdersManager.Cloud.Interfaces
 {
    public interface ICloudServices : IDisposable
     {
-         Task<bool> UploadFileAsync(string filePath);
+         Task<bool> UploadFileAsync(string filePath, string fileName);
 
     }
 }

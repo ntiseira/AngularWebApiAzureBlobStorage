@@ -43,8 +43,9 @@
     <Reference Include="Microsoft.Data.Services.Client, Version=5.8.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Data.Services.Client.5.8.4\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Sandboxable.Microsoft.WindowsAzure.Storage, Version=8.7.0.0, Culture=neutral, PublicKeyToken=dd461fa2f43d8736, processorArchitecture=MSIL">
       <HintPath>..\packages\Sandboxable.Microsoft.WindowsAzure.Storage.1.1.9\lib\net452\Sandboxable.Microsoft.WindowsAzure.Storage.dll</HintPath>

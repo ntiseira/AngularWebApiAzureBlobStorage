@@ -5,17 +5,21 @@ using OrdersManager.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Runtime.Serialization.Json;
+using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
- 
+using System.Web.Http.Cors;
 
 namespace OrdersManager.Api.Controllers
 {
-  //  [Authorize]
+    //  [Authorize]
+
     [RoutePrefix("api")]
     public class OrderController : ApiController
     {
@@ -79,7 +83,22 @@ namespace OrdersManager.Api.Controllers
                 // Read the form data.
                 await Request.Content.ReadAsMultipartAsync(provider);
 
-                await  orderService.UploadImageContainer(provider.FileData[0].LocalFileName);
+                //Get name of file
+                string nameOfFile = provider.FileData[0].Headers.ContentDisposition.FileName;
+
+                //Parse if it's JSON
+                if (StringHelper.ValidateJSON(nameOfFile))
+                { 
+                   
+                    using (var ms = new MemoryStream(Encoding.Unicode.GetBytes(provider.FileData[0].Headers.ContentDisposition.FileName)))
+                    {
+                        // Deserialization from JSON  
+                        DataContractJsonSerializer deserializer = new DataContractJsonSerializer(typeof(string));
+                        nameOfFile = (string)deserializer.ReadObject(ms);                 
+                    }
+                }
+
+                await orderService.UploadImageContainer(provider.FileData[0].LocalFileName, nameOfFile);
 
                
                 return Request.CreateResponse(HttpStatusCode.OK);

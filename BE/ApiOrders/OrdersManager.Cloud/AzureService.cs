@@ -13,7 +13,7 @@ namespace OrdersManager.Cloud
 {
     public class AzureService : ICloudServices
     {
-        public async Task<bool> UploadFileAsync(string filePath)
+        public async Task<bool> UploadFileAsync(string filePath, string fileName)
         {
             
             CloudStorageAccount storageAccount = null;
@@ -44,7 +44,7 @@ namespace OrdersManager.Cloud
 
                     }
 
-                    CloudBlockBlob cloudBlockBlob = cloudBlobContainer.GetBlockBlobReference(containerName);
+                    CloudBlockBlob cloudBlockBlob = cloudBlobContainer.GetBlockBlobReference(fileName);
                                        
                     await cloudBlockBlob.UploadFromFileAsync(filePath);
                     

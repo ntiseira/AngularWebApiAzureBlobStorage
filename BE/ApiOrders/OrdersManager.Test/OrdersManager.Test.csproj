@@ -77,8 +77,9 @@
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="nunit.framework, Version=3.11.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.11.0\lib\net45\nunit.framework.dll</HintPath>
@@ -192,6 +193,10 @@
     <ProjectReference Include="..\OrdersManager.Cloud\OrdersManager.Cloud.csproj">
       <Project>{3c7f6bc3-f1bf-4c15-9c07-37d4d299f0d9}</Project>
       <Name>OrdersManager.Cloud</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OrdersManager.Common\OrdersManager.Common.csproj">
+      <Project>{34913544-f400-4787-bf97-c96b43799e20}</Project>
+      <Name>OrdersManager.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\OrdersManager.Data\OrdersManager.Data.csproj">
       <Project>{1A4E4B17-467F-412C-9359-7F9B639E9D1B}</Project>

@@ -34,9 +34,9 @@ namespace OrdersManager.Services
 
         }
 
-        public  Task<bool> UploadImageContainer(string fileName)
+        public  Task<bool> UploadImageContainer(string filePath, string fileName)
         {
-            return Task.FromResult(cloudServices.UploadFileAsync(fileName).Result);
+            return Task.FromResult(cloudServices.UploadFileAsync(filePath,fileName).Result);
         }
 
        
