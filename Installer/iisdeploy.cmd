@@ -87,23 +87,23 @@ appcmd set app ApiOrders/ /applicationPool:OrderAppPool
 )
 
 
-%appcmd% list sites /name:React-App
+%appcmd% list sites /name:Angular-App
 IF "%ERRORLEVEL%" EQU "0" (
-    ECHO YA EXISTE SITE React-App
+    ECHO YA EXISTE SITE Angular-App
     REM Add your bindings here
 ) ELSE (
 
 
 rem crea el sitio para el FE 
-appcmd add site /name:React-App /bindings:http/*:%FePort%: /physicalPath:%FE_PATH% 
-appcmd set app React-App/ /applicationPool:OrderAppPool
+appcmd add site /name:Angular-App /bindings:http/*:%FePort%: /physicalPath:%FE_PATH% 
+appcmd set app Angular-App/ /applicationPool:OrderAppPool
   
 )
 
 ECHO SET SECURITY
 
 rem activa   anonymous authentication 
-appcmd set config "React-App" /section:anonymousAuthentication /enabled:true /commit:apphost
+appcmd set config "Angular-App" /section:anonymousAuthentication /enabled:true /commit:apphost
 rem activa   anonymous authentication 
 appcmd set config "ApiOrders" /section:anonymousAuthentication /enabled:true /commit:apphost
 
